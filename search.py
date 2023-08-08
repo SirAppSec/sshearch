@@ -7,12 +7,11 @@ def find_pattern_in_directory(
     pattern: str, directory: str, delete_prompt: bool = False
 ) -> None:
     regex = re.compile(pattern)
-
-    for root, _, files in os.walk(directory):
-        for filename in files:
-            filepath = os.path.join(root, filename)
-            with open(filepath, "r", errors="ignore") as file:
-                try:
+    try:
+        for root, _, files in os.walk(directory):
+            for filename in files:
+                filepath = os.path.join(root, filename)
+                with open(filepath, "r", errors="ignore") as file:
                     contents = file.read()
                     if regex.search(contents):
                         print("Pattern found in file:" + filepath)
@@ -24,8 +23,8 @@ def find_pattern_in_directory(
                             if response.lower() == "y":
                                 os.remove(filepath)
                                 print("File " + filepath + " deleted.")
-                except PermissionError:
-                    print("premission deneid " + filepath)
+    except PermissionError:
+        print("premission deneid " + filepath)
 
 
 if __name__ == "__main__":
