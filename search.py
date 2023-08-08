@@ -12,17 +12,20 @@ def find_pattern_in_directory(
         for filename in files:
             filepath = os.path.join(root, filename)
             with open(filepath, "r", errors="ignore") as file:
-                contents = file.read()
-                if regex.search(contents):
-                    print("Pattern found in file:" + filepath)
-                    if delete_prompt:
-                        response = input(
-                            filepath
-                            + "Do you want to delete? (y/Y for yes, n/N for no): ",
-                        )
-                        if response.lower() == "y":
-                            os.remove(filepath)
-                            print("File " + filepath + " deleted.")
+                try:
+                    contents = file.read()
+                    if regex.search(contents):
+                        print("Pattern found in file:" + filepath)
+                        if delete_prompt:
+                            response = input(
+                                filepath
+                                + "Do you want to delete? (y/Y for yes, n/N for no): ",
+                            )
+                            if response.lower() == "y":
+                                os.remove(filepath)
+                                print("File " + filepath + " deleted.")
+                except PermissionError:
+                    print("premission deneid " + filepath)
 
 
 if __name__ == "__main__":
