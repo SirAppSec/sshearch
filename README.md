@@ -14,7 +14,7 @@ Run the script with the directory as the argument to search for the default patt
 
 ```bash
 python search.py "/home/umlal/.ssh"
-
+```
 Search Custom Pattern in Directory
 
 You can also specify a different pattern to search:
