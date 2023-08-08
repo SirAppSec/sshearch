@@ -1,6 +1,3 @@
-Certainly! Here's the README.md content that explains the updated functionality of the script:
-
-markdown
 
 # Key Pattern Search and Delete Tool
 
