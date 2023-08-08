@@ -17,9 +17,9 @@ def find_pattern_in_directory(
                     print(f"Pattern found in file: {filepath}")
                     if delete_prompt:
                         response = input(
-                            f"Do you want to delete {filepath}? (y/Y for yes(default), n/N for no): "
+                            f"Do you want to delete {filepath}? (y/Y for yes, n/N for no): "
                         )
-                        if response.lower() != "n":
+                        if response.lower() == "y":
                             os.remove(filepath)
                             print(f"File {filepath} deleted.")
 
@@ -33,13 +33,14 @@ if __name__ == "__main__":
         "-p",
         type=str,
         help="The pattern to search for.",
-        default="-----BEGIN RSA PRIVATE KEY-----",
+        default="BEGIN.*KEY",
     )
     parser.add_argument(
         "--directory",
         "-d",
         type=str,
-        required=True,
+        required=False,
+        default="~/.ssh",
         help="The directory to search within.",
     )
     parser.add_argument(

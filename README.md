@@ -7,10 +7,11 @@ This CLI tool searches for a specific regex pattern within all files in a given 
 
 ### Search Pattern in Directory
 
-Run the script with the directory as the argument to search for the default pattern `"-----BEGIN \*. KEY-----"`:
+Run the script with the directory as the argument to search for the default pattern `"BEGIN.*KEY"`:
 
 ```bash
-python search.py "/home/umlal/.ssh"
+python search.py
+python search.py -d /home/umlal/.ssh
 ```
 Search Custom Pattern in Directory
 
@@ -18,7 +19,7 @@ You can also specify a different pattern to search:
 
 ```bash
 
-python search.py "your-custom-regex-pattern" "/home/umlal/.ssh"
+python search.py -p regexpattern -d directory
 ```
 Search and Prompt to Delete Files
 
@@ -26,7 +27,7 @@ To search for the pattern and prompt to delete any files where the pattern is fo
 
 ```bash
 
-python search.py "/home/umlal/.ssh" --delete
+python search.py -d /home/umlal/.ssh --delete
 ```
 If the pattern is found, you will be prompted with a question asking if you want to delete the file. Type 'y' or 'Y' to confirm the deletion, or 'n' or 'N' to skip to the next file.
 Warning
