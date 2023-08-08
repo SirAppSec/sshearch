@@ -4,7 +4,7 @@ import argparse
 
 
 def find_pattern_in_directory(
-    pattern: str, directory: str, delete_prompt: bool = False
+    pattern: str, directory: str, delete_prompt: bool = False, non_interactive=False
 ) -> None:
     regex = re.compile(pattern)
     try:
@@ -51,6 +51,14 @@ if __name__ == "__main__":
         action="store_true",
         help="Prompt to delete the file if the pattern is found.",
     )
+    parser.add_argument(
+        "--non-interactive",
+        "-i",
+        action="store_true",
+        help="Prompt to delete the file if the pattern is found.",
+    )
     args = parser.parse_args()
 
-    find_pattern_in_directory(args.pattern, args.directory, args.delete)
+    find_pattern_in_directory(
+        args.pattern, args.directory, args.delete, args.non_interactive
+    )
