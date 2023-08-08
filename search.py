@@ -14,14 +14,15 @@ def find_pattern_in_directory(
             with open(filepath, "r", errors="ignore") as file:
                 contents = file.read()
                 if regex.search(contents):
-                    print(f"Pattern found in file: {filepath}")
+                    print("Pattern found in file:" + filepath)
                     if delete_prompt:
                         response = input(
-                            f"Do you want to delete {filepath}? (y/Y for yes, n/N for no): "
+                            filepath,
+                            "Do you want to delete? (y/Y for yes, n/N for no): ",
                         )
                         if response.lower() == "y":
                             os.remove(filepath)
-                            print(f"File {filepath} deleted.")
+                            print("File " + filepath + " deleted.")
 
 
 if __name__ == "__main__":
