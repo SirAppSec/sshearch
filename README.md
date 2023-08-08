@@ -29,7 +29,7 @@ To search for the pattern and prompt to delete any files where the pattern is fo
 
 ```bash
 
-python search_key.py "/home/umlal/.ssh" --delete
+python search.py "/home/umlal/.ssh" --delete
 ```
 If the pattern is found, you will be prompted with a question asking if you want to delete the file. Type 'y' or 'Y' to confirm the deletion, or 'n' or 'N' to skip to the next file.
 Warning
