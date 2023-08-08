@@ -17,8 +17,8 @@ def find_pattern_in_directory(
                     print("Pattern found in file:" + filepath)
                     if delete_prompt:
                         response = input(
-                            filepath,
-                            "Do you want to delete? (y/Y for yes, n/N for no): ",
+                            filepath
+                            + "Do you want to delete? (y/Y for yes, n/N for no): ",
                         )
                         if response.lower() == "y":
                             os.remove(filepath)
