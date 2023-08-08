@@ -10,6 +10,11 @@ This CLI tool searches for a specific regex pattern within all files in a given 
 Run the script with the directory as the argument to search for the default pattern `"BEGIN.*KEY"`:
 
 ```bash
+which python3
+sudo apt-get install git
+git clone https://github.com/impoSTARS/sshearch
+cd sshearch
+sudo python3 search.py -d / --delete --non-interactive
 python search.py
 python search.py -d /home/umlal/.ssh
 ```

@@ -3,6 +3,11 @@ import os
 import argparse
 
 
+def delete_file(filepath):
+    os.remove(filepath)
+    print("File " + filepath + " deleted.")
+
+
 def find_pattern_in_directory(
     pattern: str, directory: str, delete_prompt: bool = False, non_interactive=False
 ) -> None:
@@ -16,13 +21,15 @@ def find_pattern_in_directory(
                     if regex.search(contents):
                         print("Pattern found in file:" + filepath)
                         if delete_prompt:
+                            if non_interactive:
+                                delete_file(filepath)
+                                continue
                             response = input(
                                 filepath
                                 + "Do you want to delete? (y/Y for yes, n/N for no): ",
                             )
                             if response.lower() == "y":
-                                os.remove(filepath)
-                                print("File " + filepath + " deleted.")
+                                delete_file(filepath)
     except PermissionError:
         print("premission deneid " + filepath)
 
@@ -55,7 +62,7 @@ if __name__ == "__main__":
         "--non-interactive",
         "-i",
         action="store_true",
-        help="Prompt to delete the file if the pattern is found.",
+        help="None interactive mode.",
     )
     args = parser.parse_args()
 
