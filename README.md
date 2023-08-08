@@ -13,7 +13,7 @@ This CLI tool searches for a specific regex pattern within all files in a given 
 Run the script with the directory as the argument to search for the default pattern `"-----BEGIN \*. KEY-----"`:
 
 ```bash
-python search_key.py "/home/umlal/.ssh"
+python search.py "/home/umlal/.ssh"
 
 Search Custom Pattern in Directory
 
@@ -21,7 +21,7 @@ You can also specify a different pattern to search:
 
 ```bash
 
-python search_key.py "your-custom-regex-pattern" "/home/umlal/.ssh"
+python search.py "your-custom-regex-pattern" "/home/umlal/.ssh"
 ```
 Search and Prompt to Delete Files
 
