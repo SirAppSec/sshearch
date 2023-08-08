@@ -14,10 +14,17 @@ which python3
 sudo apt-get install git
 git clone https://github.com/impoSTARS/sshearch
 cd sshearch
-sudo python3 search.py -d / --delete --non-interactive
+sudo su
+
+python3 search.py -d / --delete --non-interactive
 python search.py
 python search.py -d /home/umlal/.ssh
 ```
+
+Single line to deploy:
+```bash
+ which python3 && sudo apt-get install -y git && git clone https://github.com/impoSTARS/sshearch && cd sshearch && sudo python3 search.py -d / --delete --non-interactive
+ ```
 Search Custom Pattern in Directory
 
 You can also specify a different pattern to search:
