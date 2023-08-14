@@ -3,6 +3,8 @@
 
 This CLI tool searches for a specific regex pattern within all files in a given directory and optionally prompts to delete the file if the pattern is found.
 
+This CLI tool was made durin BsidesLV23 Pros vs Joes ctf.
+
 ## Usage
 
 ### Search Pattern in Directory
@@ -50,5 +52,4 @@ Requirements
 Python 3.x
 
 
-This README.md file outlines how to use the script, including the new deletion prompt functionality, and provides warnings and requirements for using the script.
 
